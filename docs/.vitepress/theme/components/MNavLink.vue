@@ -44,7 +44,7 @@ const svg = computed(() => {
   </a>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-nav-link {
   --m-nav-icon-box-size: 40px;
   --m-nav-icon-size: 24px;
