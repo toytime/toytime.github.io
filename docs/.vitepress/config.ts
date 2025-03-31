@@ -1,14 +1,6 @@
 import { basename } from 'node:path'
 import { defineConfig } from 'vitepress'
-import MarkdownPreview from 'vite-plugin-markdown-preview'
-import { defineConfig } from 'vite'
-
-export default defineConfig({
-  css: {
-    modules: false,
-    postcss: false
-  }
-})    
+import MarkdownPreview from 'vite-plugin-markdown-preview' 
 
 import { head, nav, sidebar } from './configs'
 
@@ -87,5 +79,17 @@ export default defineConfig({
 
   vite: {
     plugins: [MarkdownPreview()],
+    css: {
+      // 禁用 CSS 模块
+      modules: false,
+      // 禁用 PostCSS
+      postcss: false,
+      // 禁用预处理器
+      preprocessorOptions: {
+        scss: false,
+        less: false,
+        stylus: false
+      }
+    }
   },
-})
+})    
