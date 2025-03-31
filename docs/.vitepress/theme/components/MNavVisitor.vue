@@ -16,7 +16,7 @@ const { visitor } = theme.value
   />
 </template>
 
-<style scoped>
+<style>
 .visitor {
   margin-left: 8px;
 }
