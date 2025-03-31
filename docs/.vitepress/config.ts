@@ -1,10 +1,10 @@
-import { basename } from 'node:path'
-import { defineConfig } from 'vitepress'
-import MarkdownPreview from 'vite-plugin-markdown-preview' 
+import { basename } from 'node:path';
+import { defineConfig } from 'vitepress';
+import MarkdownPreview from 'vite-plugin-markdown-preview';
 
-import { head, nav, sidebar } from './configs'
+import { head, nav, sidebar } from './configs';
 
-const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '')
+const APP_BASE_PATH = basename(process.env.GITHUB_REPOSITORY || '');
 
 export default defineConfig({
   outDir: '../dist',
@@ -80,11 +80,8 @@ export default defineConfig({
   vite: {
     plugins: [MarkdownPreview()],
     css: {
-      modules: {
-        scopeBehaviour: 'global',
-        // 设置生成的作用域名称为常量，避免生成 data-v- 样式
-        generateScopedName: '[name]__[local]' 
-      },
+      // 禁用 CSS 模块
+      modules: false,
       // 禁用 PostCSS
       postcss: false,
       // 禁用预处理器
@@ -92,7 +89,29 @@ export default defineConfig({
         scss: false,
         less: false,
         stylus: false
-      }
+      },
+      // 不进行 CSS 压缩
+      minify: false 
+    },
+    esbuild: {
+      // 禁用 JS 转译
+      jsxFactory: false,
+      jsxFragment: false,
+      minify: false 
+    },
+    optimizeDeps: {
+      // 不进行依赖预构建
+      disabled: true 
+    },
+    build: {
+      // 不进行代码分割
+      rollupOptions: {
+        output: {
+          manualChunks: undefined
+        }
+      },
+      // 不进行 JS 压缩
+      minify: false 
     }
-  },
-})    
+  }
+});    
