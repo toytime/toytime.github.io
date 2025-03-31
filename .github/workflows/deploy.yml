@@ -53,7 +53,7 @@ jobs:
       - name: Build
         env:
           APP_BASE_PATH: /
-        run: pnpm install && pnpm run bulid
+        run: pnpm install && pnpm run build
 
       # 部署
       - name: Deploy
