@@ -32,7 +32,7 @@ const formatTitle = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .m-nav-links {
   --m-nav-gap: 10px;
   display: grid;
