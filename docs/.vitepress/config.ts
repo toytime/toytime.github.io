@@ -1,6 +1,14 @@
 import { basename } from 'node:path'
 import { defineConfig } from 'vitepress'
 import MarkdownPreview from 'vite-plugin-markdown-preview'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  css: {
+    modules: false,
+    postcss: false
+  }
+})    
 
 import { head, nav, sidebar } from './configs'
 
