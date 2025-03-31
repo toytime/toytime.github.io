@@ -80,9 +80,10 @@ export default defineConfig({
   vite: {
     plugins: [MarkdownPreview()],
     css: {
-      // 禁用 CSS 模块
       modules: {
-        scopeBehaviour: 'global' // 设置为全局作用域，避免生成 data-v- 属性
+        scopeBehaviour: 'global',
+        // 设置生成的作用域名称为常量，避免生成 data-v- 样式
+        generateScopedName: '[name]__[local]' 
       },
       // 禁用 PostCSS
       postcss: false,
