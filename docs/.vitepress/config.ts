@@ -94,9 +94,7 @@ export default defineConfig({
       minify: false 
     },
     esbuild: {
-      // 禁用 JS 转译
-      jsxFactory: false,
-      jsxFragment: false,
+      // 移除错误的 jsxFactory 和 jsxFragment 设置
       minify: false 
     },
     optimizeDeps: {
