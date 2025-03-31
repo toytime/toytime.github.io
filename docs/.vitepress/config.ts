@@ -81,7 +81,9 @@ export default defineConfig({
     plugins: [MarkdownPreview()],
     css: {
       // 禁用 CSS 模块
-      modules: false,
+      modules: {
+        scopeBehaviour: 'global' // 设置为全局作用域，避免生成 data-v- 属性
+      },
       // 禁用 PostCSS
       postcss: false,
       // 禁用预处理器
